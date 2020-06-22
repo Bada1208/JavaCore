@@ -1,7 +1,7 @@
 package com.sysoiev_bogdan.javacore.chapter18.tasks.task_1;
 
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * Задание 1
@@ -17,21 +17,23 @@ import java.util.Arrays;
  * <p>
  * Т.е. индексы 1 и 2 (значение 8 и 15) в сумме дают искомое число 23
  */
-public class FirstTaskClass {
-    static void indexSum(int array[], int indexSum) {
-        System.out.println("array = " + Arrays.toString(array) + ", Number = " + indexSum);
+public class ArrayNumberSumOfIndexes {
+    static ArrayList<Integer> indexSum(int array[], int indexSum) {
+        ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 if (i != j && array[i] + array[j] == indexSum) {
-                    System.out.println("result = [" + i + "," + j + "]");
+                    list.add(i);
+                    list.add(j);
                 }
 
             }
         }
+        return list;
     }
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 8};
-        indexSum(arr, 13);
+        System.out.println(indexSum(arr, 13));
     }
 }
