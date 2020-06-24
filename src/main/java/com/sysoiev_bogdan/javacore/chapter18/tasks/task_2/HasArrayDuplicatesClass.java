@@ -1,6 +1,8 @@
 package com.sysoiev_bogdan.javacore.chapter18.tasks.task_2;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Задание 2
@@ -18,17 +20,14 @@ import java.util.Arrays;
  */
 
 public class HasArrayDuplicatesClass {
-    static boolean checkDuplicates(int array[]) {
-        boolean isDuplicate = false;
-        Arrays.sort(array);
-        for (int i = 0; i < array.length - 1; i++) {
-            if (array[i] == array[i + 1]) return isDuplicate = true;
-        }
-        return isDuplicate;
+    static boolean checkDuplicates(Integer array[]) {
+        Set<Integer> hashset = new HashSet<>(Arrays.asList(array));
+        return hashset.size() < array.length ? false : true;
+
     }
 
     public static void main(String[] args) {
-        int[] arr = {2, 333, 67, 5, 56, 67, 9};
+        Integer[] arr = {2, 333, 5, 56, 67, 9};
         System.out.println(checkDuplicates(arr));
     }
 }
