@@ -1,7 +1,7 @@
 package com.sysoiev_bogdan.javacore.tasks.concurrency.task2;
 
 public class FizzBuzzDemoConcurrency {
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         FizzBuzz fizzBuzz = new FizzBuzz(20);
 
         Runnable myThreadA = () -> {
@@ -44,5 +44,5 @@ public class FizzBuzzDemoConcurrency {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
