@@ -2,28 +2,32 @@ package com.sysoiev_bogdan.javacore.tasks.concurrency.task2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.IntConsumer;
 
-public class FizzBuzz {
-
-    public int getN() {
-        return n;
-    }
-
-    public void setN(int n) {
-        this.n = n;
-    }
-
+class FizzBuzz {
     private int n;
 
     public FizzBuzz(int n) {
         this.n = n;
     }
 
-    public synchronized void fizz(Runnable printFizz) {
+
+    public synchronized void fizz(Runnable printFizz) throws InterruptedException {
+        printFizz = () -> {
+            List<Object> list = new ArrayList<>();
+            for (int i = 1; i <= n; i++) {
+                if (i % 3 != 0) list.add(i);
+                else if (i % 3 == 0) list.add("fizz");
+            }
+            System.out.println();
+            for (Object o : list) {
+                System.out.print(o.toString() + " ");
+            }
+        };
         printFizz.run();
     }
 
-    public synchronized void buzz(Runnable printBuzz) {
+    public synchronized void buzz(Runnable printBuzz) throws InterruptedException {
         printBuzz = () -> {
             System.out.println();
             List<Object> list = new ArrayList<>();
@@ -35,16 +39,10 @@ public class FizzBuzz {
                 System.out.print(o.toString() + " ");
             }
         };
-      /*  Thread threadB = new Thread(printBuzz);
-        threadB.start();
-        try {
-            threadB.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+        printBuzz.run();
     }
 
-    public synchronized void fizzbuzz(Runnable printFizzBuzz) {
+    public synchronized void fizzbuzz(Runnable printFizzBuzz) throws InterruptedException {
         printFizzBuzz = () -> {
             System.out.println();
             List<Object> list = new ArrayList<>();
@@ -57,41 +55,15 @@ public class FizzBuzz {
                 System.out.print(o.toString() + " ");
             }
         };
-      /*  Thread threadC = new Thread(printFizzBuzz);
-        threadC.start();
-        try {
-            threadC.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+        printFizzBuzz.run();
     }
 
-    public synchronized void number(Runnable printNumber) {
-        printNumber = () -> {
-            System.out.println();
+    public synchronized void number(IntConsumer printNumber) throws InterruptedException {
+        printNumber = (n) -> {
             for (int i = 1; i <= n; i++) {
-                System.out.print(i + " ");
+                IntConsumer consumer = a -> System.out.print(a + " ");
+                consumer.accept(i);
             }
         };
-       /* Thread threadD = new Thread(printNumber);
-        threadD.start();
-        try {
-            threadD.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
     }
-
-   /* public void runMethod() {
-
-        Thread threadA = new Thread(() -> {
-            // new FizzBuzz().
-        });
-        threadA.start();
-        try {
-            threadA.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }*/
 }
