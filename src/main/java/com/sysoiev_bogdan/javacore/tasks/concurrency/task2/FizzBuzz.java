@@ -11,9 +11,14 @@ class FizzBuzz {
         this.n = n;
     }
 
+    public int getN() {
+        return n;
+    }
+
 
     public synchronized void fizz(Runnable printFizz) throws InterruptedException {
         printFizz = () -> {
+            System.out.println();
             List<Object> list = new ArrayList<>();
             for (int i = 1; i <= n; i++) {
                 if (i % 3 != 0) list.add(i);
@@ -60,10 +65,7 @@ class FizzBuzz {
 
     public synchronized void number(IntConsumer printNumber) throws InterruptedException {
         printNumber = (n) -> {
-            for (int i = 1; i <= n; i++) {
-                IntConsumer consumer = a -> System.out.print(a + " ");
-                consumer.accept(i);
-            }
         };
+
     }
 }
