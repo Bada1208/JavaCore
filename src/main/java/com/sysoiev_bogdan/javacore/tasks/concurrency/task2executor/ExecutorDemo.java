@@ -9,7 +9,7 @@ import java.util.function.IntConsumer;
 class ExecutorDemo {
     public static void main(String[] args) {
         FizzBuzz fizzBuzz = new FizzBuzz(20);
-        ExecutorService executorService = Executors.newScheduledThreadPool(4);
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
         //first thread
         Runnable runnableFizz = () -> {
             Runnable fizz = () -> {
