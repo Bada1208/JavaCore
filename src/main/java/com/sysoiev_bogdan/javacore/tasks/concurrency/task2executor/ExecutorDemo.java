@@ -64,9 +64,7 @@ class ExecutorDemo {
             future2.get();
             future3.get();
             future4.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
         executorService.shutdown();
