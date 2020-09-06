@@ -10,9 +10,10 @@ public class PalindromDemo {
     }
 
     public static boolean isPalindrom(String s) {
-        boolean isPal = false;
+        /*boolean isPal = false;
         String reverse = new StringBuffer(s).reverse().toString();
         if (s.equals(reverse)) isPal = true;
-        return isPal;
+        return isPal;*/
+        return s.equals(new StringBuffer(s).reverse().toString());
     }
 }
