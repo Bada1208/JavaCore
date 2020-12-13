@@ -1,7 +1,7 @@
 package com.sysoiev_bogdan.javacore.chapter18.tasks.task_1;
 
-
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Задание 1
@@ -18,18 +18,18 @@ import java.util.ArrayList;
  * Т.е. индексы 1 и 2 (значение 8 и 15) в сумме дают искомое число 23
  */
 public class ArrayNumberSumOfIndexes {
-    static ArrayList<Integer> indexSum(int array[], int indexSum) {
-        ArrayList<Integer> list = new ArrayList<>();
+    static Set<Integer> indexSum(int array[], int indexSum) {
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 if (i != j && array[i] + array[j] == indexSum) {
-                    list.add(i);
-                    list.add(j);
+                    set.add(i);
+                    set.add(j);
                 }
 
             }
         }
-        return list;
+        return set;
     }
 
     public static void main(String[] args) {

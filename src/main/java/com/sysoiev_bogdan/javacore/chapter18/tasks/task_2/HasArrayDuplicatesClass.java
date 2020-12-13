@@ -22,7 +22,7 @@ import java.util.Set;
 public class HasArrayDuplicatesClass {
     static boolean checkDuplicates(Integer array[]) {
         Set<Integer> hashset = new HashSet<>(Arrays.asList(array));
-        return hashset.size() < array.length ? false : true;
+        return hashset.size() < array.length ? true : false;
 
     }
 
