@@ -2,8 +2,6 @@ package com.sysoiev_bogdan.javacore.functional_programming.streams_and_optionals
 
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class _Streams {
     public static void main(String[] args) {
