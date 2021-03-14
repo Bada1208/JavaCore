@@ -8,7 +8,6 @@ public class _LowerBoundedWildCards {
 
         List<Integer> list1 = Arrays.asList(1, 2);
         List<Number> list2 = Arrays.asList(1, 2.0);
-        //print(list);
         print(list1);
         print(list2);
     }
